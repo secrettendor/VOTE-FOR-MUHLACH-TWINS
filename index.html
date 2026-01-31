@@ -8,36 +8,56 @@
     body { 
       background: #111; 
       color: #fff; 
-      display: flex; 
-      justify-content: center; 
-      align-items: center; 
-      height: 100vh; 
       font-family: sans-serif; 
       margin: 0;
-      flex-direction: column;
+      padding: 20px;
       text-align: center;
     }
     h1 {
-      margin-bottom: 20px;
-      font-size: 1.8rem;
       color: #ffcc00;
+      margin-bottom: 30px;
     }
-    #vote-widget { 
-      width: 400px; 
-      max-width: 90%; 
-      background: #222; 
-      padding: 16px; 
-      border-radius: 12px; 
+    .widget-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      justify-items: center;
+    }
+    .choicely-widget-box {
+      background: #222;
+      padding: 12px;
+      border-radius: 12px;
+      width: 200px;
+      max-width: 100%;
     }
   </style>
 </head>
 <body>
   <h1>VOTE FOR MUHLACH TWINS</h1>
-  <div id="vote-widget"></div>
+  <div class="widget-grid">
+    <div id="vote1" class="choicely-widget-box"></div>
+    <div id="vote2" class="choicely-widget-box"></div>
+    <div id="vote3" class="choicely-widget-box"></div>
+    <div id="vote4" class="choicely-widget-box"></div>
+    <div id="vote5" class="choicely-widget-box"></div>
+    <div id="vote6" class="choicely-widget-box"></div>
+    <div id="vote7" class="choicely-widget-box"></div>
+    <div id="vote8" class="choicely-widget-box"></div>
+    <div id="vote9" class="choicely-widget-box"></div>
+    <div id="vote10" class="choicely-widget-box"></div>
+  </div>
 
+  <!-- Choicely Widget Script -->
   <script src="https://cdn.choicely.com/vx/web-widget.js"></script>
   <script>
-    window.ChoicelyWidget.createWidget({ bid: "vote-widget" });
+    const bids = [
+      "vote1","vote2","vote3","vote4","vote5",
+      "vote6","vote7","vote8","vote9","vote10"
+    ];
+
+    bids.forEach(bid => {
+      window.ChoicelyWidget.createWidget({ bid: bid });
+    });
   </script>
 </body>
 </html>
