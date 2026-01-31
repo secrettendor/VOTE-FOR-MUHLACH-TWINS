@@ -1,95 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>MUHLACH TWINS VOTE x80</title>
-<style>
-  /* Background and body */
-  body {
-    background-color: #000; /* black background */
-    font-family: 'Segoe UI', sans-serif;
-    color: #fff;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Header with picture */
-  #header {
-    padding: 20px;
-    border-bottom: 3px solid #FF6F00; /* neon orange border */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #header img {
-    width: 300px;
-    border: 3px solid #FF6F00; /* neon orange border around picture */
-    border-radius: 12px;
-    margin-bottom: 10px;
-    box-shadow: 0 0 20px #FF6F00; /* neon glow */
-  }
-
-  #header h1 {
-    color: #FF6F00; /* neon orange text */
-    margin: 0;
-    text-shadow: 0 0 15px #FF6F00;
-  }
-
-  /* Counter style */
-  #counter {
-    font-size: 22px;
-    margin: 10px;
-    color: #FF6F00;
-    text-shadow: 0 0 10px #FF6F00;
-  }
-
-  /* Container for iframes */
-  #frames {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5px;
-    padding: 20px;
-  }
-
-  iframe {
-    width: 250px;
-    height: 350px;
-    border: 2px solid #FF6F00; /* neon border */
-    border-radius: 8px;
-    box-shadow: 0 0 15px #FF6F00;
-  }
-</style>
+  <meta charset="UTF-8">
+  <title>VOTE FOR MUHLACH TWINS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { 
+      background: #111; 
+      color: #fff; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      height: 100vh; 
+      font-family: sans-serif; 
+      margin: 0;
+      flex-direction: column;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      color: #ffcc00;
+    }
+    #vote-widget { 
+      width: 400px; 
+      max-width: 90%; 
+      background: #222; 
+      padding: 16px; 
+      border-radius: 12px; 
+    }
+  </style>
 </head>
 <body>
+  <h1>VOTE FOR MUHLACH TWINS</h1>
+  <div id="vote-widget"></div>
 
-<div id="header">
-  <!-- Muhlach Twins picture -->
-  <img src="https://i.imgur.com/YOUR_IMAGE_ID.png" alt="Andres & Atasha Muhlach">
-  <h1>MUHLACH TWINS VOTE x80</h1>
-</div>
-
-<div id="counter">Votes triggered: 0 / 80</div>
-
-<div id="frames"></div>
-
-<script>
-  const framesContainer = document.getElementById('frames');
-  const counterEl = document.getElementById('counter');
-  let count = 0;
-
-  for(let i=1; i<=80; i++){
-    const frame = document.createElement('iframe');
-    frame.src = 'https://vote-five-virid.vercel.app/';
-    frame.onload = () => {
-      count++;
-      counterEl.innerText = `Votes triggered: ${count} / 80`;
-    };
-    framesContainer.appendChild(frame);
-  }
-</script>
-
+  <script src="https://cdn.choicely.com/vx/web-widget.js"></script>
+  <script>
+    window.ChoicelyWidget.createWidget({ bid: "vote-widget" });
+  </script>
 </body>
 </html>
